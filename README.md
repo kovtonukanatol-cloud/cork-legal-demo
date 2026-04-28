@@ -9,8 +9,6 @@ A high-fidelity landing page demonstration for a legal firm based in **Cork & Ma
 You can view the live site here: 
 **[Visit Live Site](https://kovtonukanatol-cloud.github.io/cork-legal-demo/)**
 
-> **Note:** If you just updated the files, it might take a minute for GitHub Pages to refresh.
-
 ## 🛠️ Features
 - **Responsive Layout:** Optimized for desktop, tablet, and mobile devices.
 - **Modern UI:** Clean, trustworthy aesthetic using Navy and Gold accents.
