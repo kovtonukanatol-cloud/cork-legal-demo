@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cork Legal Services — Solicitors Cork & Mallow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1B2B4B;
+      --navy-deep:   #111d33;
+      --navy-mid:    #243660;
+      --navy-light:  #2e4480;
+      --gold:        #C9A84C;
+      --gold-light:  #dfc070;
+      --gold-pale:   rgba(201,168,76,0.12);
+      --gold-border: rgba(201,168,76,0.28);
+      --white:       #ffffff;
+      --off-white:   #f7f5f0;
+      --gray-100:    #f0eff0;
+      --gray-300:    #d1d0ce;
+      --gray-500:    #8a8985;
+      --gray-700:    #4a4947;
+      --text:        #1a1917;
+      --rule:        rgba(27,43,75,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      background: var(--navy-deep);
+      border-bottom: 1px solid rgba(201,168,76,0.22);
+      transition: box-shadow 0.3s;
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 32px rgba(17,29,51,0.55);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .logo-text .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--white);
+    }
+
+    .logo-text .tagline {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .btn-consult {
+      background: var(--navy-light);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.65rem 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-consult:hover {
+      background: var(--gold);
+      color: var(--navy-deep);
+      border-color: var(--gold);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      margin-top: 76px;
+      min-height: calc(100vh - 76px);
+      background: var(--navy-deep);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle diagonal lines background pattern */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 60px,
+        rgba(201,168,76,0.025) 60px,
+        rgba(201,168,76,0.025) 61px
+      );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4% 5rem 8%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-kicker-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-kicker-text {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--white);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.8;
+      max-width: 420px;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-deep);
+      border: none;
+      padding: 0.9rem 2rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.88rem 1.8rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-trust {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .trust-item {}
+
+    .trust-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .trust-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: brightness(0.6) contrast(1.05);
+    }
+
+    /* gradient overlay from left */
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        var(--navy-deep) 0%,
+        rgba(17,29,51,0.3) 35%,
+        transparent 60%
+      );
+      z-index: 1;
+    }
+
+    /* gold rule on right edge */
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      top: 15%; bottom: 15%;
+      right: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+      opacity: 0.5;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 2rem;
+      background: rgba(17,29,51,0.92);
+      border: 1px solid var(--gold-border);
+      backdrop-filter: blur(8px);
+      padding: 1rem 1.4rem;
+      z-index: 3;
+    }
+
+    .hero-badge-title {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-badge-body {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 7rem 8%; }
+
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .section-kicker-line {
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-kicker-text {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: var(--gray-500);
+      line-height: 1.8;
+      max-width: 500px;
+      margin-top: 0.8rem;
+    }
+
+    .section-header { margin-bottom: 4rem; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-kicker { justify-content: center; }
+    .section-header.center .section-sub { margin: 0.8rem auto 0; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--off-white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .svc-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .svc-card:hover { background: var(--off-white); }
+    .svc-card:hover::before { transform: scaleX(1); }
+
+    .svc-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold-border);
+    }
+
+    .svc-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .svc-desc {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    .svc-link {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      transition: gap 0.2s;
+    }
+
+    .svc-link:hover { gap: 10px; }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-img-wrap { position: relative; }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    /* gold frame offset */
+    .about-img-wrap::after {
+      content: '';
+      position: absolute;
+      top: 1.5rem;
+      left: -1.5rem;
+      right: 1.5rem;
+      bottom: -1.5rem;
+      border: 1px solid var(--gold-border);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .about-credential {
+      position: absolute;
+      bottom: 2rem;
+      right: -1.5rem;
+      background: var(--navy);
+      padding: 1.2rem 1.6rem;
+      text-align: right;
+    }
+
+    .about-credential-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .about-credential-text {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+    }
+
+    .about-achievements {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .achievement {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .achievement-check {
+      width: 22px;
+      height: 22px;
+      background: var(--gold-pale);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .achievement-text {
+      font-size: 0.9rem;
+      color: var(--gray-700);
+      line-height: 1.6;
+    }
+
+    .achievement-text strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    /* ── PROCESS ── */
+    #process { background: var(--navy); position: relative; overflow: hidden; }
+
+    #process::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 80px,
+        rgba(201,168,76,0.03) 80px,
+        rgba(201,168,76,0.03) 81px
+      );
+      pointer-events: none;
+    }
+
+    #process .section-kicker-text { color: var(--gold); }
+    #process .section-title { color: var(--white); }
+
+    .process-steps {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 1rem;
+    }
+
+    /* horizontal connector line */
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 1px;
+      background: linear-gradient(to right, var(--gold) 0%, rgba(201,168,76,0.2) 100%);
+      z-index: 0;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 72px;
+      height: 72px;
+      background: var(--navy-deep);
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.8rem;
+      position: relative;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .step-num:hover {
+      background: var(--gold-pale);
+      border-color: var(--gold);
+    }
+
+    .step-num-inner {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .step-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    /* ── REVIEWS ── */
+    #reviews { background: var(--off-white); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      padding: 2.2rem;
+      border: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      position: relative;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .review-card:hover {
+      box-shadow: 0 8px 40px rgba(27,43,75,0.10);
+      transform: translateY(-4px);
+    }
+
+    .review-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 0.5;
+      opacity: 0.4;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+    }
+
+    .review-stars span { color: var(--gold); font-size: 0.9rem; }
+
+    .review-text {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--gray-700);
+      line-height: 1.75;
+      font-family: 'Playfair Display', serif;
+      flex: 1;
+    }
+
+    .review-author {
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .review-author-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .review-author-detail {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      margin-top: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy-deep);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      position: relative;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 80px,
+        rgba(201,168,76,0.025) 80px,
+        rgba(201,168,76,0.025) 81px
+      );
+      pointer-events: none;
+    }
+
+    #contact .section-kicker-text { color: var(--gold); }
+    #contact .section-title { color: var(--white); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--white);
+      padding: 0.85rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      appearance: none;
+    }
+
+    .form-input::placeholder { color: rgba(255,255,255,0.25); }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.06);
+    }
+
+    .form-select {
+      cursor: pointer;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .form-select option {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      background: var(--gold);
+      color: var(--navy-deep);
+      border: none;
+      padding: 1rem 2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 0; position: relative; z-index: 1; }
+
+    .contact-info-item {
+      padding: 1.8rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .contact-info-item:first-of-type { padding-top: 0; }
+
+    .ci-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ci-body strong {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .ci-body span,
+    .ci-body a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      line-height: 1.6;
+      display: block;
+    }
+
+    .ci-body a:hover { color: var(--gold); }
+
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 0.3rem; }
+    .hours-table tr td {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      padding: 0.2rem 0;
+    }
+    .hours-table tr td:first-child { color: rgba(255,255,255,0.85); width: 100px; }
+
+    .map-wrap {
+      margin-top: 2rem;
+      border: 1px solid var(--gold-border);
+      overflow: hidden;
+      height: 220px;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      filter: grayscale(60%) invert(92%) contrast(85%);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0c1525;
+      border-top: 1px solid rgba(201,168,76,0.18);
+      padding: 2rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-disclaimer {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.25);
+      text-align: right;
+      max-width: 340px;
+      line-height: 1.5;
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-image { height: 380px; }
+      .hero-content { padding: 3.5rem 6%; }
+      #about { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 6%; }
+      .about-img-wrap::after { display: none; }
+      .about-credential { right: 1rem; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+      .process-steps::before { display: none; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      #contact { grid-template-columns: 1fr; padding: 4rem 6%; }
+      nav { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      section { padding: 4rem 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header id="site-header">
+  <a href="#" class="logo">
+    <div class="logo-mark">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3L4 7v6c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V7l-8-4z"/>
+        <path d="M8 14l2 2 4-4"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <span class="name">Cork Legal Services</span>
+      <span class="tagline">Solicitors · Cork &amp; Mallow</span>
+    </div>
+  </a>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <a href="#contact" class="btn-consult">Free Consultation</a>
+</header>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <div class="hero-kicker-line"></div>
+      <span class="hero-kicker-text">Established 2004 · Regulated by the Law Society of Ireland</span>
+    </div>
+    <h1 class="hero-title">Trusted Legal Advice in <em>Cork</em> &amp; Mallow.</h1>
+    <p class="hero-sub">Professional, confidential, and results-driven legal services for individuals and businesses across Munster.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Free Consultation</a>
+      <a href="#services" class="btn-ghost">Our Practice Areas</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="trust-num">20+</div>
+        <div class="trust-label">Years practising</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">800+</div>
+        <div class="trust-label">Cases resolved</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">100%</div>
+        <div class="trust-label">Confidential</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1000&auto=format&fit=crop&q=85" alt="Lawyer at desk in professional office" />
+    <div class="hero-badge">
+      <div class="hero-badge-title">Regulated &amp; Insured</div>
+      <div class="hero-badge-body">Law Society of Ireland</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="section-header reveal">
+    <div class="section-kicker">
+      <div class="section-kicker-line"></div>
+      <span class="section-kicker-text">Practice Areas</span>
+    </div>
+    <h2 class="section-title">Our Areas of <em>Expertise</em></h2>
+    <p class="section-sub">We offer comprehensive legal representation across six core disciplines, each handled by specialists with deep domain knowledge.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="svc-card reveal reveal-delay-1">
+      <div class="svc-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+          <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+        </svg>
+      </div>
+      <div class="svc-name">Business Law</div>
+      <p class="svc-desc">Company formation, contracts, commercial disputes, mergers and acquisitions, and corporate governance for SMEs and multinationals.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-2">
+      <div class="svc-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <div class="svc-name">Property Law</div>
+      <p class="svc-desc">Residential and commercial conveyancing, landlord-tenant disputes, planning issues, and property development agreements.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-3">
+      <div class="svc-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="svc-name">Family Law</div>
+      <p class="svc-desc">Divorce, separation, child custody and guardianship, maintenance, and domestic violence matters handled with care and discretion.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-4">
+      <div class="svc-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div class="svc-name">Employment Law</div>
+      <p class="svc-desc">Unfair dismissal, discrimination claims, workplace disputes, redundancy, and employment contract drafting for employers and employees.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-5">
+      <div class="svc-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+      </div>
+      <div class="svc-name">Criminal Defence</div>
+      <p class="svc-desc">Expert representation in the District, Circuit, and High Courts. We protect your rights from the moment of arrest through to resolution.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+
+    <div class="svc-card reveal reveal-delay-6">
+      <div class="svc-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+      </div>
+      <div class="svc-name">Wills &amp; Estates</div>
+      <p class="svc-desc">Will drafting, estate planning, probate administration, and Powers of Attorney — securing your legacy for future generations.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-img-wrap reveal">
+    <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=700&auto=format&fit=crop&q=85" alt="Senior solicitor portrait" />
+    <div class="about-credential">
+      <div class="about-credential-num">20+</div>
+      <div class="about-credential-text">Years at the Bar</div>
+    </div>
+  </div>
+
+  <div class="reveal reveal-delay-2">
+    <div class="section-kicker">
+      <div class="section-kicker-line"></div>
+      <span class="section-kicker-text">About Us</span>
+    </div>
+    <h2 class="section-title">Counsel You Can <em>Rely On</em></h2>
+    <p class="section-sub" style="margin-bottom:2rem">Cork Legal Services was founded on a single principle: every client deserves honest advice, rigorous preparation, and fearless representation. Our senior solicitor brings over two decades of courtroom and advisory experience across Ireland's legal landscape.</p>
+    <p style="font-size:0.88rem;color:var(--gray-500);line-height:1.8;margin-bottom:2rem">We combine the personal attention of a boutique practice with the resources and expertise of a much larger firm — ensuring you always feel informed, supported, and in capable hands.</p>
+
+    <div class="about-achievements">
+      <div class="achievement">
+        <div class="achievement-check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="achievement-text">
+          <strong>Law Society of Ireland — Full Member</strong>
+          Regulated, insured, and subject to the Law Society's strict professional conduct rules.
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="achievement-check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="achievement-text">
+          <strong>800+ Cases Successfully Resolved</strong>
+          A proven track record across commercial, family, and criminal matters.
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="achievement-check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="achievement-text">
+          <strong>Modern Equipment &amp; Secure Digital Case Management</strong>
+          Your documents and communications are protected by enterprise-grade security.
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="achievement-check">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="achievement-text">
+          <strong>Irish and EU Law Expertise</strong>
+          In-depth knowledge of both domestic legislation and European legal frameworks.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="process">
+  <div class="section-header center reveal">
+    <div class="section-kicker">
+      <div class="section-kicker-line"></div>
+      <span class="section-kicker-text">How We Work</span>
+    </div>
+    <h2 class="section-title" style="color:var(--white)">Our <em>Process</em></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.5);margin:0.8rem auto 0">A clear, transparent process from first contact to final resolution — no surprises, no hidden steps.</p>
+  </div>
+
+  <div class="process-steps">
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-num"><span class="step-num-inner">01</span></div>
+      <h3 class="step-title">Consultation</h3>
+      <p class="step-desc">A confidential, no-obligation initial meeting — in person, by phone, or video call — to understand your situation fully.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-num"><span class="step-num-inner">02</span></div>
+      <h3 class="step-title">Case Review</h3>
+      <p class="step-desc">We conduct a thorough analysis of all relevant documents, precedents, and applicable law to assess your position.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-num"><span class="step-num-inner">03</span></div>
+      <h3 class="step-title">Strategy</h3>
+      <p class="step-desc">We present clear, plain-English options with an honest assessment of likely outcomes, timelines, and costs.</p>
+    </div>
+    <div class="process-step reveal reveal-delay-4">
+      <div class="step-num"><span class="step-num-inner">04</span></div>
+      <h3 class="step-title">Resolution</h3>
+      <p class="step-desc">We pursue the best outcome through negotiation, mediation, or litigation — keeping you informed at every stage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section id="reviews">
+  <div class="section-header center reveal">
+    <div class="section-kicker">
+      <div class="section-kicker-line"></div>
+      <span class="section-kicker-text">Client Testimonials</span>
+    </div>
+    <h2 class="section-title">What Our Clients <em>Say</em></h2>
+    <p class="section-sub">Our reputation is built on results and trust — reflected in what our clients tell us after their matters are resolved.</p>
+  </div>
+
+  <div class="reviews-grid">
+
+    <div class="review-card reveal reveal-delay-1">
+      <div class="review-quote">"</div>
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">I was facing a complex commercial dispute that could have devastated my business. The team at Cork Legal Services handled everything with remarkable professionalism. They kept me fully informed and negotiated an outcome far better than I had hoped for.</p>
+      <div class="review-author">
+        <div class="review-author-name">Ciarán Breathnach</div>
+        <div class="review-author-detail">Director, Breathnach Construction Ltd · Business Law</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal reveal-delay-2">
+      <div class="review-quote">"</div>
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">Going through a separation is one of the hardest things a person can face. I cannot speak highly enough of how sensitively and effectively my case was handled. I always felt I had a genuine advocate in my corner, not just a solicitor watching the clock.</p>
+      <div class="review-author">
+        <div class="review-author-name">Siobhán O'Mahony</div>
+        <div class="review-author-detail">Private Client · Family Law</div>
+      </div>
+    </div>
+
+    <div class="review-card reveal reveal-delay-3">
+      <div class="review-quote">"</div>
+      <div class="review-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">When I was facing an unfair dismissal situation, I had no idea where to turn. Cork Legal Services gave me clarity immediately. The advice was direct, the strategy was sound, and the result — a full settlement — spoke for itself. Exceptional firm.</p>
+      <div class="review-author">
+        <div class="review-author-name">Tomás Ó'Briain</div>
+        <div class="review-author-detail">Private Client · Employment Law</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div style="position:relative;z-index:1;">
+    <div class="section-kicker reveal">
+      <div class="section-kicker-line"></div>
+      <span class="section-kicker-text">Get in Touch</span>
+    </div>
+    <h2 class="section-title reveal reveal-delay-1" style="color:var(--white);margin-bottom:0.5rem">Book Your Free<br><em>Consultation</em></h2>
+    <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:2.5rem;margin-top:0.5rem;line-height:1.7" class="reveal reveal-delay-2">All enquiries are treated in the strictest confidence. We will respond within one business day.</p>
+
+    <form class="contact-form reveal reveal-delay-2" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Your full name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" class="form-input" placeholder="+353 (0)__" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Area of Enquiry</label>
+        <select class="form-select">
+          <option value="" disabled selected>Select a practice area</option>
+          <option>Business Law</option>
+          <option>Property Law</option>
+          <option>Family Law</option>
+          <option>Employment Law</option>
+          <option>Criminal Defence</option>
+          <option>Wills &amp; Estates</option>
+          <option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Brief Description</label>
+        <textarea class="form-textarea" placeholder="Please describe your matter briefly. Do not include sensitive details at this stage."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit Enquiry →</button>
+    </form>
+  </div>
+
+  <div style="position:relative;z-index:1;" class="reveal reveal-delay-2">
+    <div class="section-kicker" style="margin-bottom:2rem;">
+      <div class="section-kicker-line"></div>
+      <span class="section-kicker-text">Office Information</span>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <div class="ci-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="ci-body">
+          <strong>Offices</strong>
+          <span>14 South Mall, Cork City, Co. Cork</span>
+          <span>Bridge Street, Mallow, Co. Cork</span>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="ci-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-.84a2 2 0 0 1 2.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="ci-body">
+          <strong>Phone</strong>
+          <a href="tel:02100000">Cork: (021) 000 0000</a>
+          <a href="tel:02200000">Mallow: (022) 00000</a>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="ci-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="ci-body">
+          <strong>Email</strong>
+          <a href="mailto:info@corklegal.ie">info@corklegal.ie</a>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="ci-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="ci-body">
+          <strong>Office Hours</strong>
+          <table class="hours-table">
+            <tr><td>Mon – Fri</td><td>9:00 – 17:30</td></tr>
+            <tr><td>Saturday</td><td>By appointment</td></tr>
+            <tr><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19375.28823!2d-8.47482!3d51.89772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4844900afc3b937b%3A0xf17680e2f2c3e6c9!2sSouth%20Mall%2C%20Cork!5e0!3m2!1sen!2sie!4v1600000000001"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Cork Legal Services location">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo-text">Cork Legal Services</div>
+  <div class="footer-copy">© 2026 Cork Legal Services. All rights reserved.</div>
+  <div class="footer-disclaimer">Cork Legal Services is regulated by the Law Society of Ireland. This website does not constitute legal advice. Always seek independent legal counsel.</div>
+</footer>
+
+<script>
+  // Header scroll effect
+  const hdr = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    hdr.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => obs.observe(el));
+
+  // Active nav link
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${cur}` ? 'var(--gold)' : '';
+    });
+  });
+
+  // Form submit feedback
+  const form = document.querySelector('.contact-form');
+  const btn = form.querySelector('.form-submit');
+  form.addEventListener('submit', () => {
+    btn.textContent = 'Enquiry Sent ✓';
+    btn.style.background = '#2e4480';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Submit Enquiry →';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 3000);
+  });
+</script>
+</body>
+</html>
